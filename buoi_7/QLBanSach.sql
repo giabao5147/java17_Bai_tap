@@ -2,18 +2,8 @@ CREATE DATABASE QLBanSach;
 
 USE QLBanSach;
 
-CREATE TABLE don_hang (
-    ma_don_hang VARCHAR(20),
-    da_thanh_toan BOOLEAN NOT NULL,
-    ngay_dat DATE NOT NULL,
-    ngay_giao DATE,
-    tinh_trang_giao_GH VARCHAR(50),
-    
-    PRIMARY KEY (ma_don_hang)
-);
-
 CREATE TABLE khach_hang (
-    ma_kh VARCHAR(255),
+    ma_kh VARCHAR(25),
     tai_khoan VARCHAR(255) NOT NULL,
     mat_khau VARCHAR(255) NOT NULL,
     ho_ten VARCHAR(50) NOT NULL,
@@ -22,12 +12,38 @@ CREATE TABLE khach_hang (
     gioi_tinh CHAR(3),
     email VARCHAR(255),
     ngay_sinh DATE,
-    ma_don_hang VARCHAR(20), 
 
-    PRIMARY KEY (ma_kh),
-    CONSTRAINT fk_ma_don_hang FOREIGN KEY (ma_don_hang) 
-    REFERENCES don_hang(ma_don_hang) 
+    PRIMARY KEY (ma_kh)
+);
+
+CREATE TABLE don_hang (
+    ma_don_hang VARCHAR(20),
+    da_thanh_toan BOOLEAN NOT NULL,
+    ngay_dat DATE NOT NULL,
+    ngay_giao DATE,
+    tinh_trang_giao_GH VARCHAR(50),
+    ma_kh VARCHAR(25),
+    
+    PRIMARY KEY (ma_don_hang),
+    CONSTRAINT fk_ma_kh FOREIGN KEY (ma_kh) 
+    REFERENCES khach_hang(ma_kh) 
     ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE chu_de (
+    ma_chu_de VARCHAR(20),
+    ten_chu_de VARCHAR(50) NOT NULL,
+
+    PRIMARY KEY (ma_chu_de)
+);
+
+CREATE TABLE nha_xuat_ban (
+    ma_nxb VARCHAR(20),
+    ten_nxb VARCHAR(50) NOT NULL,
+    dia_chi VARCHAR(255),
+    dien_thoai VARCHAR(20),
+
+    PRIMARY KEY (ma_nxb)
 );
 
 CREATE TABLE sach (
@@ -38,18 +54,15 @@ CREATE TABLE sach (
     gia_ban INT NOT NULL,
     anh_bia BLOB,
     mo_ta VARCHAR(255),
-
-    PRIMARY KEY (ma_sach)
-);
-
-CREATE TABLE chu_de (
     ma_chu_de VARCHAR(20),
-    ten_chu_de VARCHAR(50) NOT NULL,
-    ma_sach VARCHAR(20),
+    ma_nxb VARCHAR(20),
 
-    PRIMARY KEY (ma_chu_de),
-    CONSTRAINT fk_ma_sach FOREIGN KEY (ma_sach)
-    REFERENCES sach(ma_sach)
+    PRIMARY KEY (ma_sach),
+    CONSTRAINT fk_ma_chu_de FOREIGN KEY (ma_chu_de)
+    REFERENCES chu_de(ma_chu_de)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_ma_nxb FOREIGN KEY (ma_nxb)
+    REFERENCES nha_xuat_ban(ma_nxb)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -61,19 +74,6 @@ CREATE TABLE tac_gia (
     dien_thoai VARCHAR(20),
 
     PRIMARY KEY (ma_tac_gia)
-);
-
-CREATE TABLE nha_xuat_ban (
-    ma_nxb VARCHAR(20),
-    ten_nxb VARCHAR(50) NOT NULL,
-    dia_chi VARCHAR(255),
-    dien_thoai VARCHAR(20),
-    ma_sach VARCHAR(20),
-
-    PRIMARY KEY (ma_nxb),
-    CONSTRAINT fk_ma_sach_nxb FOREIGN KEY (ma_sach)
-    REFERENCES sach(ma_sach)
-    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE chi_tiet_don_hang (
