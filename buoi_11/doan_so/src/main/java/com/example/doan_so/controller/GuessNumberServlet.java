@@ -12,7 +12,7 @@ import java.io.IOException;
 public class GuessNumberServlet extends HttpServlet {
 
     public static final int MIN = 1;
-    public static final int MAX = 10;
+    public static final int MAX = 1000;
     public static PlayerList playerList;
 
     @Override
