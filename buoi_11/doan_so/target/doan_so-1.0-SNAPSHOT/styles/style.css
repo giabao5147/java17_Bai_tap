@@ -1,0 +1,33 @@
+.block-1 {
+    height: 20%;
+}
+
+.block-2 {
+    height: 60%;
+}
+
+.block-2-row {
+    height: 100%;
+    background-color: #EFEFEF;
+}
+
+.form-group {
+    position: relative;
+    text-align: center;
+    top: 50%;
+    transform: translate(0, -20%);
+    overflow: auto;
+}
+
+.btn-primary {
+    background-color: #205375;
+}
+
+.form-group {
+    color: #112B3C;
+}
+
+.block-2-2 {
+    text-align: center;
+    overflow: auto;
+}

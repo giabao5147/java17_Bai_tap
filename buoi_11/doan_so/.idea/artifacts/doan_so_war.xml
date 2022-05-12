@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="doan_so:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>doan_so</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="doan_so-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="doan_so:war exploded" />
+    </root>
+  </artifact>
+</component>
