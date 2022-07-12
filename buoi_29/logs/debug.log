@@ -1,0 +1,9 @@
+2022-07-12 15:41:04.004 -Starting LoggerApplication using Java 11.0.15 on cloudland with PID 25264 (/run/media/baotran/data/programming/java/IdeaProjects/web/logger/target/classes started by baotran in /run/media/baotran/data/programming/java/IdeaProjects/web/logger)
+2022-07-12 15:41:04.004 -Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-12 15:41:04.004 -No active profile set, falling back to 1 default profile: "default"
+2022-07-12 15:41:05.005 -Started LoggerApplication in 2.022 seconds (JVM running for 3.053)
+2022-07-12 15:47:22.022 -Starting LoggerApplication using Java 11.0.15 on cloudland with PID 25808 (/run/media/baotran/data/programming/java/IdeaProjects/web/logger/target/classes started by baotran in /run/media/baotran/data/programming/java/IdeaProjects/web/logger)
+2022-07-12 15:47:22.022 -Running with Spring Boot v2.7.1, Spring v5.3.21
+2022-07-12 15:47:22.022 -No active profile set, falling back to 1 default profile: "default"
+2022-07-12 15:47:23.023 -Started LoggerApplication in 2.198 seconds (JVM running for 3.288)
+2022-07-12 15:47:24.024 -Hello from spring boot
